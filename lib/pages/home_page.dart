@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 20),
 
+                //ANIMATEDCONTAINER:
                 GestureDetector(
                   onTap: () {
                     flagContainer = 30 + Random().nextInt(225);
@@ -76,6 +77,92 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 20),
+
+                //ANIMATEDDCROSSFADE:
+                AnimatedCrossFade(
+                  firstChild: FlutterLogo(
+                    size: 200,
+                    style: FlutterLogoStyle.horizontal,
+                  ),
+                  secondChild: FlutterLogo(
+                    size: 200,
+                    style: FlutterLogoStyle.stacked,
+                  ),
+                  crossFadeState: CrossFadeState.showFirst,
+                  duration: Duration(seconds: 2),
+                  firstCurve: Curves.bounceIn,
+                  secondCurve: Curves.bounceOut,
+                ),
+
+                //ANIMATEDDEFAULTTEXTSTYLE:
+                AnimatedDefaultTextStyle(
+                  child: Text('Hola a todos'),
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.red,
+                  ),
+                  duration: Duration(seconds: 2),
+                  curve: Curves.bounceIn,
+                ),
+                SizedBox(height: 20),
+
+                //ANIMATEDOPACITY:
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 1200),
+                  opacity: 1,
+                  child: Image.asset(
+                    'assets/images/batman.jpg',
+                    height: 200,
+                  ),
+                ),
+                SizedBox(height: 20),
+                AnimatedOpacity(
+                  curve: Curves.easeInBack,
+                  duration: Duration(milliseconds: 1200),
+                  opacity: 1,
+                  child: Text(
+                      'Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum'),
+                ),
+                SizedBox(height: 20),
+
+                //ANIMATEDPHYSICALMODEL:
+                AnimatedPhysicalModel(
+                  child: Container(
+                    height: 200,
+                    width: 200,
+                  ),
+                  shape: BoxShape.rectangle,
+                  elevation: 10,
+                  color: Colors.indigo,
+                  shadowColor: Colors.black,
+                  duration: Duration(milliseconds: 1200),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+
+                SizedBox(height: 200),
+
+                //ANIMATEDPOSITIONED:
+                Container(
+                  color: Colors.blue,
+                  width: 300,
+                  height: 300,
+                  child: Stack(
+                    children: [
+                      AnimatedPositioned(
+                        bottom: 100,
+                        right: 100,
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          color: Colors.greenAccent,
+                        ),
+                        duration: Duration(milliseconds: 2000),
+                        curve: Curves.bounceOut,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
