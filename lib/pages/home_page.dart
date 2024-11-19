@@ -1,8 +1,17 @@
+import 'dart:math';
+
 import 'package:animation/pages/hero_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int flagContainer = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +37,44 @@ class HomePage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => HeroPage()));
                   },
                   child: Text('Hero'),
+                ),
+
+                SizedBox(height: 20),
+
+                //ANIMATEDALIGN:
+                Container(
+                  height: 300,
+                  width: 300,
+                  color: Colors.blue,
+                  child: AnimatedAlign(
+                    alignment: Alignment.topLeft,
+                    duration: Duration(seconds: 2),
+                    curve: Curves.bounceOut,
+                    child: Image.asset(
+                      'assets/images/batman.jpg',
+                      height: 50,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+
+                GestureDetector(
+                  onTap: () {
+                    flagContainer = 30 + Random().nextInt(225);
+                    setState(() {});
+                  },
+                  child: AnimatedContainer(
+                    curve: Curves.bounceOut,
+                    duration: Duration(seconds: 2),
+                    height: flagContainer.toDouble(),
+                    width: flagContainer.toDouble(),
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(
+                          flagContainer, flagContainer, flagContainer, 1),
+                      borderRadius:
+                          BorderRadius.circular(flagContainer.toDouble()),
+                    ),
+                  ),
                 ),
               ],
             ),
