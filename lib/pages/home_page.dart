@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animation/pages/animation_page.dart';
 import 'package:animation/pages/hero_page.dart';
 import 'package:flutter/material.dart';
 
@@ -140,8 +141,6 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(20),
                 ),
 
-                SizedBox(height: 200),
-
                 //ANIMATEDPOSITIONED:
                 Container(
                   color: Colors.blue,
@@ -162,7 +161,19 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 20),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AnimationPage()));
+                  },
+                  child: Text('Animation Page'),
+                ),
+                SizedBox(height: 200),
               ],
             ),
           ),
