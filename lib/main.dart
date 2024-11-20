@@ -1,4 +1,5 @@
 import 'package:animation/pages/home_page.dart';
+import 'package:animation/pages/media_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AnimationApp',
-      home: HomePage(),
+      home: MediaPage(),
     );
   }
 }
